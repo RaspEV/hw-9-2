@@ -43,6 +43,7 @@ systemctl enable zabbix-server apache2
 ### Задание 2
 
 `Установите Zabbix Agent на два хоста.`
+
 `Процесс выполнения`
 
 1. `Выполняя ДЗ, сверяйтесь с процессом отражённым в записи лекции.`
@@ -60,23 +61,29 @@ systemctl enable zabbix-server apache2
 
 ### Решение к заданию 2
 
-`Приведите ответ в свободной форме........`
+`Установите Zabbix Agent на 2 вирт.машины, одной из них может быть ваш Zabbix Server.`
+![Две виртульные машины](img/9-2-2.png)
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+`Приложите в файл README.md скриншот раздела Configuration > Hosts, где видно, что агенты подключены к серверу`
+![Configuration > Hosts](img/9-2-3.png)
 
+`Приложите в файл README.md скриншот лога zabbix agent, где видно, что он работает с сервером`
+![Agent1](img/9-2-5.png)
+![Agent2](img/9-2-6.png)
+
+`Приложите в файл README.md скриншот раздела Monitoring > Latest data для обоих хостов, где видны поступающие от агентов данные.`
+![Monitoring > Latest data](img/9-2-4.png)
+
+`Приложите в файл README.md текст использованных команд в GitHub`
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+su -
+apt update
+wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_6.0+debian11_all.deb
+dpkg -i zabbix-release_latest_6.0+debian11_all.deb
+apt update 
+apt install zabbix-agent
+'отредактировать строку Server=127.0.0.1 в файле /etc/zabbix/zabbix_agentd.conf'
+systemctl restart zabbix-agent
+systemctl enable zabbix-agent 
 ```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
 
